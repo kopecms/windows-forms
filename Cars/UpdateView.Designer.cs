@@ -137,7 +137,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 126);
+            this.ClientSize = new System.Drawing.Size(568, 126);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -150,6 +150,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "UpdateView";
             this.Text = "UpdateView";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UpdateView_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

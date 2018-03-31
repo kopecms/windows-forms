@@ -17,7 +17,8 @@ namespace Cars
         List<Car> cars = new List<Car>();
 
         public event EventHandler RemoveCarEvent;
-        public event EventHandler UpdateListEvent;
+        public event EventHandler UpdateCarEvent;
+        public event EventHandler CreateCarEvent;
 
         public MainForm()
         {
@@ -42,23 +43,22 @@ namespace Cars
         public void DeleteCar(Car car)
         {
             this.cars.Remove(car);
-            UpdateListEvent(car, new EventArgs());
+            RemoveCarEvent(car, new EventArgs());
         }
 
         public void AddCar(Car car)
         {
             this.cars.Add(car);
-            UpdateListEvent(car, new EventArgs());
+            CreateCarEvent(car, new EventArgs());
         }
 
-        public void UpdateCar()
+        public void UpdateCar(Car car,Car updatedCar)
         {
-            /*
-            carOld.Brand = updatedCar.Brand;
-            carOld.MaxSpeed = updatedCar.MaxSpeed;
-            carOld.ProductionDate = updatedCar.ProductionDate;
-            carOld.Type = updatedCar.Type;*/
-            UpdateListEvent(new Object(), new EventArgs());
+            car.Brand = updatedCar.Brand;
+            car.MaxSpeed = updatedCar.MaxSpeed;
+            car.ProductionDate = updatedCar.ProductionDate;
+            car.Type = updatedCar.Type;
+            UpdateCarEvent(car, new EventArgs());
         }
 
         private void createListView()
@@ -104,6 +104,21 @@ namespace Cars
         private void cascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LayoutMdi(MdiLayout.Cascade);
+        }
+
+        private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

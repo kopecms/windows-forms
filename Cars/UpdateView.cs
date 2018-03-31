@@ -13,6 +13,7 @@ namespace Cars
     public partial class UpdateView : Form
     {
         private Car car;
+        private MainForm parent;
         public UpdateView(Car car)
         {
             InitializeComponent();
@@ -25,17 +26,29 @@ namespace Cars
 
         private void updateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.car.Brand = this.branTextBox.Text;
-            this.car.Type = this.typeTextBox.Text;
-            this.car.MaxSpeed = Convert.ToInt32(this.maxSpeedTextBox.Text);
-            this.car.ProductionDate = this.dateTimePicker.Value;
-            ((MainForm)this.MdiParent).UpdateCar();
+            Car updatedCar = new Car(this.branTextBox.Text,Convert.ToInt32(this.maxSpeedTextBox.Text),
+                this.dateTimePicker.Value,  
+                this.typeTextBox.Text);
+            ((MainForm)this.MdiParent).UpdateCar(this.car, updatedCar);
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ((MainForm)this.MdiParent).DeleteCar(this.car);
             this.Close();
+        }
+
+        private void UpdateView_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (((MainForm)this.MdiParent).viewCounter <= 1 && e.CloseReason != CloseReason.MdiFormClosing)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                e.Cancel = false;
+                ((MainForm)this.MdiParent).viewCounter--;
+            }
         }
     }
 }

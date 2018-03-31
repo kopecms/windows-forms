@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.speedMax = 999;
-            this.speedMin = 0;
             this.components = new System.ComponentModel.Container();
             this.carListView = new System.Windows.Forms.ListView();
             this.Brand = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -49,8 +47,11 @@
             this.OutRadioButton = new System.Windows.Forms.RadioButton();
             this.inRadioButton = new System.Windows.Forms.RadioButton();
             this.allRadioButton = new System.Windows.Forms.RadioButton();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // carListView
@@ -64,7 +65,7 @@
             this.Type});
             this.carListView.Location = new System.Drawing.Point(12, 12);
             this.carListView.Name = "carListView";
-            this.carListView.Size = new System.Drawing.Size(447, 284);
+            this.carListView.Size = new System.Drawing.Size(447, 312);
             this.carListView.TabIndex = 0;
             this.carListView.UseCompatibleStateImageBehavior = false;
             this.carListView.View = System.Windows.Forms.View.Details;
@@ -125,7 +126,8 @@
             // 
             // filterButton
             // 
-            this.filterButton.Location = new System.Drawing.Point(482, 273);
+            this.filterButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.filterButton.Location = new System.Drawing.Point(482, 301);
             this.filterButton.Name = "filterButton";
             this.filterButton.Size = new System.Drawing.Size(289, 23);
             this.filterButton.TabIndex = 2;
@@ -135,28 +137,29 @@
             // 
             // speedUpInput
             // 
-            this.speedUpInput.Location = new System.Drawing.Point(482, 107);
+            this.speedUpInput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.speedUpInput.Location = new System.Drawing.Point(482, 86);
             this.speedUpInput.Name = "speedUpInput";
             this.speedUpInput.Size = new System.Drawing.Size(289, 22);
             this.speedUpInput.TabIndex = 3;
-            this.speedUpInput.Text = this.speedMax.ToString();
             this.speedUpInput.Validating += new System.ComponentModel.CancelEventHandler(this.speedUpInput_Validating);
             this.speedUpInput.Validated += new System.EventHandler(this.speedUpInput_Validated);
             // 
             // speedDownInput
             // 
-            this.speedDownInput.Location = new System.Drawing.Point(482, 58);
+            this.speedDownInput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.speedDownInput.Location = new System.Drawing.Point(482, 37);
             this.speedDownInput.Name = "speedDownInput";
             this.speedDownInput.Size = new System.Drawing.Size(289, 22);
             this.speedDownInput.TabIndex = 4;
-            this.speedDownInput.Text = this.speedMin.ToString();
             this.speedDownInput.Validating += new System.ComponentModel.CancelEventHandler(this.speedDownInput_Validating);
             this.speedDownInput.Validated += new System.EventHandler(this.speedDownInput_Validated);
             // 
             // speedUpLable
             // 
+            this.speedUpLable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.speedUpLable.AutoSize = true;
-            this.speedUpLable.Location = new System.Drawing.Point(482, 87);
+            this.speedUpLable.Location = new System.Drawing.Point(482, 66);
             this.speedUpLable.Name = "speedUpLable";
             this.speedUpLable.Size = new System.Drawing.Size(89, 17);
             this.speedUpLable.TabIndex = 5;
@@ -164,13 +167,13 @@
             // 
             // minimumSpeedLable
             // 
+            this.minimumSpeedLable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.minimumSpeedLable.AutoSize = true;
-            this.minimumSpeedLable.Location = new System.Drawing.Point(482, 35);
+            this.minimumSpeedLable.Location = new System.Drawing.Point(482, 14);
             this.minimumSpeedLable.Name = "minimumSpeedLable";
             this.minimumSpeedLable.Size = new System.Drawing.Size(110, 17);
             this.minimumSpeedLable.TabIndex = 6;
             this.minimumSpeedLable.Text = "Minimum speed:";
-            this.minimumSpeedLable.Click += new System.EventHandler(this.label1_Click);
             // 
             // errorProvider
             // 
@@ -178,43 +181,67 @@
             // 
             // OutRadioButton
             // 
+            this.OutRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.OutRadioButton.AutoSize = true;
-            this.OutRadioButton.Location = new System.Drawing.Point(485, 164);
+            this.OutRadioButton.Location = new System.Drawing.Point(485, 143);
             this.OutRadioButton.Name = "OutRadioButton";
             this.OutRadioButton.Size = new System.Drawing.Size(109, 21);
             this.OutRadioButton.TabIndex = 7;
             this.OutRadioButton.TabStop = true;
             this.OutRadioButton.Text = "Out of range";
             this.OutRadioButton.UseVisualStyleBackColor = true;
+            this.OutRadioButton.CheckedChanged += new System.EventHandler(this.allRadioButton_CheckedChanged);
             // 
             // inRadioButton
             // 
+            this.inRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.inRadioButton.AutoSize = true;
-            this.inRadioButton.Location = new System.Drawing.Point(485, 135);
+            this.inRadioButton.Location = new System.Drawing.Point(485, 114);
             this.inRadioButton.Name = "inRadioButton";
             this.inRadioButton.Size = new System.Drawing.Size(81, 21);
             this.inRadioButton.TabIndex = 8;
             this.inRadioButton.TabStop = true;
             this.inRadioButton.Text = "In range";
             this.inRadioButton.UseVisualStyleBackColor = true;
-            this.inRadioButton.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.inRadioButton.CheckedChanged += new System.EventHandler(this.allRadioButton_CheckedChanged);
             // 
             // allRadioButton
             // 
+            this.allRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.allRadioButton.AutoSize = true;
-            this.allRadioButton.Location = new System.Drawing.Point(485, 191);
+            this.allRadioButton.Location = new System.Drawing.Point(485, 170);
             this.allRadioButton.Name = "allRadioButton";
             this.allRadioButton.Size = new System.Drawing.Size(44, 21);
             this.allRadioButton.TabIndex = 9;
             this.allRadioButton.TabStop = true;
             this.allRadioButton.Text = "All";
             this.allRadioButton.UseVisualStyleBackColor = true;
+            this.allRadioButton.CheckedChanged += new System.EventHandler(this.allRadioButton_CheckedChanged);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 311);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(819, 25);
+            this.statusStrip1.TabIndex = 10;
+            this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.Visible = false;
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(151, 20);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // ListView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 308);
+            this.ClientSize = new System.Drawing.Size(819, 336);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.allRadioButton);
             this.Controls.Add(this.inRadioButton);
             this.Controls.Add(this.OutRadioButton);
@@ -226,13 +253,18 @@
             this.Controls.Add(this.carListView);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(819, 336);
             this.Name = "ListView";
             this.Text = "ListView";
+            this.Activated += new System.EventHandler(this.ListView_Activated);
+            this.Deactivate += new System.EventHandler(this.ListView_Deactivate);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ListView_FormClosing);
             this.Load += new System.EventHandler(this.ListView_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,5 +291,7 @@
         private System.Windows.Forms.RadioButton inRadioButton;
         private System.Windows.Forms.RadioButton OutRadioButton;
         private System.Windows.Forms.RadioButton allRadioButton;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
