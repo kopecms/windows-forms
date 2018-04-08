@@ -80,7 +80,7 @@ namespace Cars
             if (createDialog.ShowDialog() == DialogResult.OK)
             {
                 string brand = createDialog.branTextBox.Text;
-                string type = createDialog.typeTextBox.Text;
+                string type = createDialog.carControl1.CarType;
                 int maxSpeed = Convert.ToInt32(createDialog.maxSpeedTextBox.Text);
                 DateTime productionDate = createDialog.dateTimePicker.Value;
                 this.AddCar(new Car(brand, maxSpeed, productionDate, type));

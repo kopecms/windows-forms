@@ -19,7 +19,7 @@ namespace Cars
             InitializeComponent();
             this.car = car;
             this.branTextBox.Text = car.Brand;
-            this.typeTextBox.Text = car.Type;
+            this.carControl1.CarType = car.Type;
             this.maxSpeedTextBox.Text = car.MaxSpeed.ToString();
             this.dateTimePicker.Value = car.ProductionDate;
         }
@@ -28,7 +28,7 @@ namespace Cars
         {
             Car updatedCar = new Car(this.branTextBox.Text,Convert.ToInt32(this.maxSpeedTextBox.Text),
                 this.dateTimePicker.Value,  
-                this.typeTextBox.Text);
+                this.carControl1.CarType);
             ((MainForm)this.MdiParent).UpdateCar(this.car, updatedCar);
         }
 

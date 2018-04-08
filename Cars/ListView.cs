@@ -189,7 +189,7 @@ namespace Cars
             catch
             {
                 e.Cancel = true;
-                errorProvider.SetError(speedDownInput, "Wprowadź liczbę.");
+                errorProvider.SetError(speedDownInput, "Number please.");
             }
         }
 
@@ -204,7 +204,7 @@ namespace Cars
             catch
             {
                 e.Cancel = true;
-                errorProvider.SetError(speedUpInput, "Wprowadź liczbę.");
+                errorProvider.SetError(speedUpInput, "Number please.");
             }
             
         }

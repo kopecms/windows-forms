@@ -42,5 +42,43 @@ namespace Cars
         {
 
         }
+
+        private void branTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (this.branTextBox.Text == "")
+            {
+                e.Cancel = true;
+                errorProvider.SetError(branTextBox, "Please fill the field.");
+            };
+        }
+
+        private void branTextBox_Validated(object sender, EventArgs e)
+        {
+            errorProvider.SetError(branTextBox, "");
+        }
+
+        private void maxSpeedTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (this.maxSpeedTextBox.Text == "")
+            {
+                e.Cancel = true;
+                errorProvider.SetError(maxSpeedTextBox, "Please fill the field.");
+            }
+            else
+            {
+                try { Convert.ToInt32(this.maxSpeedTextBox.Text); }
+                catch
+                {
+                    e.Cancel = true;
+                    errorProvider.SetError(maxSpeedTextBox, "Number please.");
+                }
+            
+            }
+        }
+
+        private void maxSpeedTextBox_Validated(object sender, EventArgs e)
+        {
+            errorProvider.SetError(maxSpeedTextBox, "");
+        }
     }
 }

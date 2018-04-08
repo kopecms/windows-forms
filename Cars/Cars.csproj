@@ -45,6 +45,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Car.cs" />
+    <Compile Include="CarControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CarControl.Designer.cs">
+      <DependentUpon>CarControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CarTypeEditor.cs" />
     <Compile Include="CreateDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +78,9 @@
     <Compile Include="UpdateView.Designer.cs">
       <DependentUpon>UpdateView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CarControl.resx">
+      <DependentUpon>CarControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateDialog.resx">
       <DependentUpon>CreateDialog.cs</DependentUpon>
     </EmbeddedResource>

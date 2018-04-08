@@ -33,12 +33,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.typeTextBox = new System.Windows.Forms.TextBox();
             this.maxSpeedTextBox = new System.Windows.Forms.TextBox();
             this.branTextBox = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.carControl1 = new Cars.CarControl();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,28 +83,21 @@
             // 
             this.dateTimePicker.Location = new System.Drawing.Point(201, 66);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(286, 22);
+            this.dateTimePicker.Size = new System.Drawing.Size(388, 22);
             this.dateTimePicker.TabIndex = 13;
-            // 
-            // typeTextBox
-            // 
-            this.typeTextBox.Location = new System.Drawing.Point(201, 94);
-            this.typeTextBox.Name = "typeTextBox";
-            this.typeTextBox.Size = new System.Drawing.Size(286, 22);
-            this.typeTextBox.TabIndex = 12;
             // 
             // maxSpeedTextBox
             // 
             this.maxSpeedTextBox.Location = new System.Drawing.Point(201, 38);
             this.maxSpeedTextBox.Name = "maxSpeedTextBox";
-            this.maxSpeedTextBox.Size = new System.Drawing.Size(286, 22);
+            this.maxSpeedTextBox.Size = new System.Drawing.Size(388, 22);
             this.maxSpeedTextBox.TabIndex = 11;
             // 
             // branTextBox
             // 
             this.branTextBox.Location = new System.Drawing.Point(201, 10);
             this.branTextBox.Name = "branTextBox";
-            this.branTextBox.Size = new System.Drawing.Size(286, 22);
+            this.branTextBox.Size = new System.Drawing.Size(388, 22);
             this.branTextBox.TabIndex = 10;
             // 
             // menuStrip1
@@ -133,21 +127,31 @@
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
+            // carControl1
+            // 
+            this.carControl1.CarType = "Sport";
+            this.carControl1.Location = new System.Drawing.Point(201, 94);
+            this.carControl1.Name = "carControl1";
+            this.carControl1.Size = new System.Drawing.Size(388, 186);
+            this.carControl1.TabIndex = 20;
+            // 
             // UpdateView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(568, 126);
+            this.ClientSize = new System.Drawing.Size(636, 297);
+            this.Controls.Add(this.carControl1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateTimePicker);
-            this.Controls.Add(this.typeTextBox);
             this.Controls.Add(this.maxSpeedTextBox);
             this.Controls.Add(this.branTextBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(636, 330);
+            this.MaximumSize = new System.Drawing.Size(636, 330);
             this.Name = "UpdateView";
             this.Text = "UpdateView";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UpdateView_FormClosing);
@@ -165,11 +169,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.DateTimePicker dateTimePicker;
-        public System.Windows.Forms.TextBox typeTextBox;
         public System.Windows.Forms.TextBox maxSpeedTextBox;
         public System.Windows.Forms.TextBox branTextBox;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private CarControl carControl1;
     }
 }
